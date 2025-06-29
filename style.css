@@ -1,0 +1,31 @@
+body {
+  background: linear-gradient(to right, #0f0f0f, #1a001f);
+  color: #d6b4fc;
+  font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+  color: #c084fc;
+  text-shadow: 0 0 8px #bb86fc;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 5px #bb86fc; }
+  to { text-shadow: 0 0 20px #a259ff, 0 0 30px #7b2cbf; }
+}
+
+button {
+  background: #a259ff;
+  border: none;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+
+button:hover {
+  background: #7b2cbf;
+  box-shadow: 0 0 15px #c084fc;
+}

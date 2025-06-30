@@ -47,7 +47,7 @@ On a mission to design, develop, and dream big 💻🌸</p>
 							<p>
   Hey there! I’m <strong>Rutvi Shah</strong>, a passionate Computer Science undergraduate with a deep love for designing intuitive and visually captivating websites 💻✨.<br><br>
   I specialize in blending creativity with code — turning ideas into interactive, elegant web experiences. Currently, I’m learning <strong>Java</strong>, <strong>HTML</strong>, and <strong>CSS</strong>, while building <strong>CampusConnect</strong> 🎓📚 — a centralized student platform to simplify college life.<br><br>
-  My mission? To keep exploring, keep creating, and sprinkle a little magic through technology everywhere I go 🧚🏻‍♀💜. I believe in dreaming big, learning continuously, and building meaningful solutions that make people smile ✨🌸
+  My mission? To keep exploring, keep creating, and sprinkle a little magic through technology everywhere I go 🧹💜. I believe in dreaming big, learning continuously, and building meaningful solutions that make people smile ✨🌸
 </p>
 
 
@@ -97,7 +97,7 @@ On a mission to design, develop, and dream big 💻🌸</p>
 
   <li>
     <strong>
-      🛠️ <a href="https://drive.google.com/file/d/1dxo4aOWbkRmeXwhNGev4Ej3_VhfrYltD/view?usp=drive_link
+      🛠 <a href="https://drive.google.com/file/d/1dxo4aOWbkRmeXwhNGev4Ej3_VhfrYltD/view?usp=drive_link
 " target="_blank">Getting Started with DevOps on AWS</a>
     </strong><br />
     <em>Issued by AWS</em>
@@ -117,10 +117,7 @@ On a mission to design, develop, and dream big 💻🌸</p>
   </li>
 </ul>
 
-
-
 </article>
-
 
 					<!-- Contact -->
 						<article id="contact">
@@ -140,20 +137,15 @@ On a mission to design, develop, and dream big 💻🌸</p>
       <textarea name="message" id="message" rows="4" required></textarea>
     </div>
   </div>
-
-  <!-- Magic to turn off CAPTCHA -->
   <input type="hidden" name="_captcha" value="false" />
-
   <ul class="actions">
     <li><input type="submit" value="Send Message" class="primary" /></li>
     <li><input type="reset" value="Reset" /></li>
   </ul>
 </form>
-
 							<ul class="icons">
 								<li><a href="https://github.com/RutviShah2" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 								<li><a href="https://www.linkedin.com/in/rutvi-shah-55b72b317" class="icon brands fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
-
 							</ul>
 						</article>
 
@@ -169,27 +161,38 @@ On a mission to design, develop, and dream big 💻🌸</p>
 		<!-- Background -->
 		<div id="bg"></div>
 
-		<!-- Scripts -->
+	<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const body = document.querySelector('body');
+
+    // When an article (tab) is closed, remove the hash from URL
+    const observer = new MutationObserver(function () {
+      if (!body.classList.contains("is-article-visible")) {
+        if (location.hash) {
+          history.replaceState(null, document.title, window.location.pathname + window.location.search);
+        }
+      }
+    });
+
+    observer.observe(body, { attributes: true, attributeFilter: ['class'] });
+
+    // If already on home and user presses back, exit (no reopening old tab)
+    window.addEventListener("popstate", function () {
+      if (!location.hash) {
+        // We're on homepage — do nothing
+        history.pushState(null, null, window.location.href);
+      }
+    });
+  });
+</script>
+
+
+<!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/browser.min.js"></script>
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
-
-<!-- Fix back button behavior -->
-<script>
-// Fix back button behavior after closing a section
-document.addEventListener("DOMContentLoaded", function () {
-  // Whenever an article is closed, remove the hash without adding to history
-  const observer = new MutationObserver(function () {
-    if (!document.body.classList.contains('is-article-visible')) {
-      history.replaceState("", document.title, window.location.pathname + window.location.search);
-    }
-  });
-
-  observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
-});
-</script>
 
 </body>
 </html>

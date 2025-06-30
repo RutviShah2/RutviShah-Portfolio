@@ -170,10 +170,24 @@ On a mission to design, develop, and dream big 💻🌸</p>
 		<div id="bg"></div>
 
 		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+// Update hash when article is closed
+document.addEventListener("DOMContentLoaded", function () {
+  const closeButtons = document.querySelectorAll('.close');
+
+  closeButtons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      history.pushState("", document.title, window.location.pathname + window.location.search);
+    });
+  });
+});
+</script>
+
 	</body>
 </html>

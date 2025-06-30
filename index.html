@@ -176,18 +176,20 @@ On a mission to design, develop, and dream big 💻🌸</p>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
 
+<!-- Fix back button behavior -->
 <script>
-// Update hash when article is closed
+// Fix back button behavior after closing a section
 document.addEventListener("DOMContentLoaded", function () {
-  const closeButtons = document.querySelectorAll('.close');
-
-  closeButtons.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      history.pushState("", document.title, window.location.pathname + window.location.search);
-    });
+  // Whenever an article is closed, remove the hash without adding to history
+  const observer = new MutationObserver(function () {
+    if (!document.body.classList.contains('is-article-visible')) {
+      history.replaceState("", document.title, window.location.pathname + window.location.search);
+    }
   });
+
+  observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
 });
 </script>
 
-	</body>
+</body>
 </html>
